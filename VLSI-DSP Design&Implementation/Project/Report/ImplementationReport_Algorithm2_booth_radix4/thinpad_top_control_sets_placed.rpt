@@ -1,0 +1,99 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Thu Jan 16 20:06:37 2025
+| Host         : LAPTOP-KMG8SJ3F running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file thinpad_top_control_sets_placed.rpt
+| Design       : thinpad_top
+| Device       : xc7a200t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    21 |
+|    Minimum number of control sets                        |    21 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    54 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    21 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    17 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               7 |            2 |
+| No           | No                    | Yes                    |               6 |            2 |
+| No           | Yes                   | No                     |              10 |            3 |
+| Yes          | No                    | No                     |             129 |           37 |
+| Yes          | No                    | Yes                    |             132 |           42 |
+| Yes          | Yes                   | No                     |             326 |           88 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++---------------------+-----------------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|     Clock Signal    |                    Enable Signal                    |              Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
++---------------------+-----------------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|  clk_main_IBUF_BUFG | ext_ram_ctrl/register_for_splitting                 |                                           |                1 |              2 |         2.00 |
+|  clk_main_IBUF_BUFG | base_ram_ctrl/we_to_sram_output_i_1_n_0             |                                           |                2 |              3 |         1.50 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/FSM_onehot_state[5]_i_1_n_0         | reset_btn_IBUF                            |                1 |              6 |         6.00 |
+|  clk_main_IBUF_BUFG |                                                     |                                           |                2 |              7 |         3.50 |
+|  clk_main_IBUF_BUFG |                                                     | reset_btn_IBUF                            |                5 |             16 |         3.20 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/calculate_cnt[0]_i_1_n_0            | reset_btn_IBUF                            |                4 |             16 |         4.00 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/addr_base_ram[21]_i_1_n_0           | reset_btn_IBUF                            |                5 |             20 |         4.00 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/addr_ext_ram[2]_i_1_n_0             | reset_btn_IBUF                            |                5 |             20 |         4.00 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/clk_cnt[0]_i_1_n_0                  | reset_btn_IBUF                            |                5 |             20 |         4.00 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/wdata_base_ram[19]_i_1_n_0          | reset_btn_IBUF                            |                5 |             20 |         4.00 |
+|  clk_main_IBUF_BUFG | base_ram_ctrl/E[0]                                  |                                           |                5 |             20 |         4.00 |
+|  clk_main_IBUF_BUFG | base_ram_ctrl/register_for_writing_data[19]_i_1_n_0 |                                           |                5 |             20 |         4.00 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/temp_calculate[63]_i_1_n_0          | reset_btn_IBUF                            |                9 |             32 |         3.56 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/temp_calculate[31]_i_1_n_0          | reset_btn_IBUF                            |               10 |             32 |         3.20 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/wdata_ext_ram[31]_i_1_n_0           | reset_btn_IBUF                            |                9 |             32 |         3.56 |
+|  clk_main_IBUF_BUFG | base_ram_ctrl/register_for_reading_data             |                                           |               11 |             32 |         2.91 |
+|  clk_main_IBUF_BUFG | ext_ram_ctrl/address_to_sram_output[19]_i_1__0_n_0  |                                           |               13 |             52 |         4.00 |
+|  clk_main_IBUF_BUFG | multiplier/result[63]_i_2_n_0                       | multiplier_ctrl/FSM_onehot_state_reg[4]_3 |               18 |             64 |         3.56 |
+|  clk_main_IBUF_BUFG | multiplier_ctrl/h_temp[31]_i_1_n_0                  | reset_btn_IBUF                            |               17 |             64 |         3.76 |
+|  clk_main_IBUF_BUFG | multiplier/x_e                                      | reset_btn_IBUF                            |               18 |             65 |         3.61 |
+|  clk_main_IBUF_BUFG | multiplier/temp[66]_i_1_n_0                         | reset_btn_IBUF                            |               24 |             67 |         2.79 |
++---------------------+-----------------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+
+
